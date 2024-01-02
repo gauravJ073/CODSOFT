@@ -91,7 +91,12 @@ class Game:
             
             move_score=self.__minmax(boardState, self.playerMark)
             boardState.board[move[0]][move[1]]=" "
-            
+
+            self.__makeMove(boardState, self.playerMark, move[0], move[1])
+            if(self.checkWinner(boardState, self.playerMark)):
+                boardState.board[move[0]][move[1]]=" "
+                return move
+            boardState.board[move[0]][move[1]]=" "
             if move_score>max_score:
                 max_score=move_score
                 bestmove=move
@@ -106,13 +111,15 @@ class Game:
         if (self.checkWinner(self.boardCurrState, self.AIMark)):
             print("AI won")
             return True
-        if (self.boardCurrState.emptyPositions==[]):
+        if (not self.boardCurrState.emptyPositions()):
             print("No one won")
             return True
         return False
     #function to make move for AI
     def AITurn(self):
         move=self.__bestMove(self.boardCurrState)
+        if move==None:
+            return False
         if(self.__makeMove(self.boardCurrState, self.AIMark, move[0], move[1])):
             return True
         else:

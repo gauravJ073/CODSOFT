@@ -23,8 +23,6 @@ def main():
             game.playerTurn(row, col)
             turn="AI"
         else:
-            if(game.gameEndCheck()):
-                break
             game.AITurn()
             turn="Player"
     game.boardCurrState.printBoard()
