@@ -33,8 +33,8 @@ class Game:
                 return True
 
         for col in range(3):
-                if all(boardState.board[row][col] == player for row in range(3)):
-                    return True
+            if all(boardState.board[row][col] == player for row in range(3)):
+                return True
 
         if all(boardState.board[i][i] == player for i in range(3)) or all(boardState.board[i][2 - i] == player for i in range(3)):
             return True
