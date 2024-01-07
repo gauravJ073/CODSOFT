@@ -24,7 +24,7 @@ class CreateEmbedding():
         self.resnet = InceptionResnetV1(pretrained='vggface2').eval()
     def run(self):
         #getting the dataset
-        dataset = datasets.ImageFolder('Face-Detection-Recoginition/data/') # photos folder path
+        dataset = datasets.ImageFolder('Face-Detection-Recognition/data/') # photos folder path
         idx_to_class = {i:c for c,i in dataset.class_to_idx.items()} # accessing names of peoples from folder names
 
         def collate_fn(x):
@@ -35,7 +35,7 @@ class CreateEmbedding():
 
         name_list = [] # list of names corrospoing to cropped photos
         embedding_list = [] # list of embeding matrix after conversion from cropped faces to embedding matrix using resnet
-        savepath="Face-Detection-Recoginition/embeddings"
+        savepath="Face-Detection-Recognition/embeddings"
         if not os.path.exists(savepath):
             os.makedirs(savepath)
         i=0

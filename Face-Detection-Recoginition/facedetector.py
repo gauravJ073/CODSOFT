@@ -26,9 +26,9 @@ class FaceDetector():
         self.resnet = InceptionResnetV1(pretrained='vggface2').eval()#loading facenet pretrained for getting embeddings
 
         self.encoder=LabelEncoder()
-        self.encoder.classes_=np.load("Face-Detection-Recoginition/classifier/classes.npy")#loading the saved encoder
+        self.encoder.classes_=np.load("Face-Detection-Recognition/classifier/classes.npy")#loading the saved encoder
         print(self.encoder.classes_)
-        with open('Face-Detection-Recoginition/classifier/svm_classifier.pkl', 'rb') as loaded_model:#loading the saved model
+        with open('Face-Detection-Recognition/classifier/svm_classifier.pkl', 'rb') as loaded_model:#loading the saved model
             self.classifier=pickle.load(loaded_model)
 
 

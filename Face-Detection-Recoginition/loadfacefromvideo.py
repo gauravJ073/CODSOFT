@@ -31,7 +31,7 @@ class LoadFaces():
                 continue
             frames.append(frame)
 
-        savepath=f'Face-Detection-Recoginition/data/{name}'
+        savepath=f'Face-Detection-Recognition/data/{name}'
 
         if not os.path.exists(savepath):
             os.makedirs(savepath)
