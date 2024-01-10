@@ -78,7 +78,7 @@ print ("Welcome to MyBank. How may I help you?")
 while (True):  
     # Takes the user input and converts all characters to lowercase
     
-    user_input = input("Enter response")
+    user_input = input("Enter response: ")
     user_input=user_input.lower()
     # Defining the Chatbot's exit condition
     if user_input in ['exit','quit']:
